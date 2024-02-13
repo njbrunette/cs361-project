@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Party Member</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+    
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="./templates/create_party_member.html">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <h1> RPG Party Maker</h1>
+    <p>
+        Below you can create a party for an RPG video game. You can create up to a party of 5 members.
+    </p>
+    <ol>
+        <li>Choose a name for your party member.</li>
+        <li>Choose the weapon the member will be using</li>
+        <li>Choose the fighting style the member will use with the chosen weapon.</li>
+    </ol>
+    <p>
+        The choices made for the member will be used to create the class of the party member.
+        For example, sword + magic user will be a paladin. (This feature will be implemented in a future sprint.)
+    </p>
+    <div class="create-form">
+    <h1>Create a Party Member</h1>
+    <form action="/create_party_member" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="weapon">Weapon:</label>
+        <select id="weapon" name="weapon" required>
+            {% for weapon in weapons %}
+                <option value="{{ weapon }}">{{ weapon }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="style">Fighting Style:</label>
+        <select id="style" name="style" required>
+            {% for style in styles %}
+                <option value="{{ style }}">{{ style }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <input type="submit" value="Create Party Member">
+    </form>
+    </div>
+    <!-- Display the Party List -->
+    <div id="party-list">
+    <h2>Party</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Weapon</th>
+                <th>Style</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in party %}
+                <tr>
+                    <td>{{ member.id }}</td>
+                    <td>{{ member.name }}</td>
+                    <td>{{ member.weapon }}</td>
+                    <td>{{ member.style }}</td>
+                    <td>
+                        <form action="/delete_party_member" method="post">
+                                <input type="hidden" name="member_id" value="{{ member.id }}">
+                                <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="weapon-explanations">
+    <h2>Available Weapons</h2>
+<ol>
+    <li>Sword - standard one-handed sword.</li>
+    <li>Axe - double sided one-haded axe.</li>
+    <li>Bow - wooden bow with arrows.</li>
+    <li>Staff - wooden staff used for spellcasting.</li>
+    <li>Dagger - small blade, easy to hide.</li>
+    <li>Hammer - large two-handed hammer.</li>
+    <li>Crossbow - mechanism used to fire bolts. Slow to reload.</li>
+    <li>Katana - long, single-edged sword used with one or two hands.</li>
+    <li>Spear - long wooden pole with sharpened metal tip.</li>
+    <li>Greatsword - large two-handed sword.</li>
+</ol>
+
+<ol>
+    <li>Aggresive - stays within melee range looking to strike whenever possible. </li>
+    <li>Defensive - stays in the back lines protecting ranged or magic users.</li>
+    <li>Balanced - goes wherever they are needed in battle. </li>
+    <li>Ranged - only attacks from range.</li>
+    <li>Dual Wielding - has the chosen weapon in each hand.</li>
+    <li>Stealthy - hides on the outskirts of battle waiting for a chance to strike.</li>
+    <li>Magic User - casts spells of varying elements.</li>
+    <li>Brute Force - no tactics or thought. Only smash.</li>
+    <li>Tactical - thinks of a plan before battle.</li>
+    <li>Swift - quick but less powerful. Higher attack speed and sprint speed. </li>
+</ol>
+
+    </div>
+</body>
+</html>
+
