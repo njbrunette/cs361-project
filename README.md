@@ -25,5 +25,6 @@ B. Receiving Data
 
 C. UML Diagram
 
+![image](https://github.com/njbrunette/cs361-project/assets/89284172/4dc5eb0f-fd73-425a-b761-e514a184a8ea)
 
     
