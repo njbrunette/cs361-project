@@ -24,7 +24,7 @@ Once you have the response in "response" you can access the value name like the 
     
     response['value'] and response['name']
 
-For example, the value would be "HWK" and the name would be "Hong Kong Dollar (HKD)"
+For example, the value would be "HKD" and the name would be "Hong Kong Dollar (HKD)"
 
 C. UML Diagram
 
