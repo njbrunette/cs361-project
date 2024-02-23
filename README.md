@@ -6,6 +6,7 @@ As of this moment the plan is for the project to be a RPG party maker. The idea 
 Also provided is a microservice for my partner's project that provides a random currency for his currency converter. 
 
 A. Requesting Data
+
     This will be done locally. To request data from the microservice you would place the below code into your program. 
     
     socket.send_string("Hello")
@@ -13,6 +14,7 @@ A. Requesting Data
     Right now it is set up to just send the message "Hello" to the server. The server will wait to receive this message before sending anything back.
     
 B. Receiving Data
+
     The server receives the "Hello" message and sends a random currency name and value back. The below code will need to be added to receive the data back.
     
     json_response = socket.recv_string()
