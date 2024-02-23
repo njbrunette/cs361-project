@@ -4,6 +4,7 @@ Quarter long project for CS 361 Software Engineering I
 As of this moment the plan is for the project to be a RPG party maker. The idea is to create a party of a maximum of people made up of various classes such as fighter, mage, healer, etc. The party maker will be able to cycle through different weapon or spell systems and give the stats of these choices. At the end you will be able to see the average stats of the party you made to see how balanced or unbalanced it is and what you need to work on. I also plan to incorporate a name randomizer to help naming your party members.
 
 Also provided is a microservice for my partner's project that provides a random currency for his currency converter. 
+
 A. Requesting Data
     This will be done locally. To request data from the microservice you would place the below code into your program. 
     
