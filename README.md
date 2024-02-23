@@ -7,24 +7,24 @@ Also provided is a microservice for my partner's project that provides a random 
 
 A. Requesting Data
 
-    This will be done locally. To request data from the microservice you would place the below code into your program. 
+This will be done locally. To request data from the microservice you would place the below code into your program. 
     
     socket.send_string("Hello")
     
-    Right now it is set up to just send the message "Hello" to the server. The server will wait to receive this message before sending anything back.
+Right now it is set up to just send the message "Hello" to the server. The server will wait to receive this message before sending anything back.
     
 B. Receiving Data
 
-    The server receives the "Hello" message and sends a random currency name and value back. The below code will need to be added to receive the data back.
+The server receives the "Hello" message and sends a random currency name and value back. The below code will need to be added to receive the data back.
     
     json_response = socket.recv_string()
     response = json.loads(json_response)
     
-    Once you have the response in "response" you can access the value name like the below.
+Once you have the response in "response" you can access the value name like the below.
     
     response['value'] and response['name']
 
-    For example, the value would be "HWK" and the name would be "Hong Kong Dollar (HKD)"
+For example, the value would be "HWK" and the name would be "Hong Kong Dollar (HKD)"
 
 C. UML Diagram
 
